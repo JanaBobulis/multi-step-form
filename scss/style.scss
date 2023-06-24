@@ -1,0 +1,85 @@
+@import "variables";
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+body {
+    background: $grey-blue;
+    font-family:'Ubuntu';
+}
+
+//step-1
+
+.sidebar {
+    background: url('/assets/images/bg-sidebar-desktop.svg');
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    width: 250px;
+    background-repeat: no-repeat;
+    padding: 30px;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.personal-info {
+    padding: 20px 70px;
+}
+
+input {
+    border-radius: 6px;
+    padding: 5px;
+    border: 1px solid $grey;
+    color: #bebfc4;
+    &:focus {
+        border: 1px solid $purple;
+        outline: none;
+        color: black;
+    }
+    &:focus-visible {
+        border: 1px solid $purple;
+        outline: none;
+        color: black;
+    }
+    
+}
+
+input[type="submit"] {
+    float: right;
+    padding: 10px 15px;
+    color: white;
+    background: $blue;
+}
+
+.step {
+    gap: 18px;
+    .step-details {
+        span {
+            color: white;
+            text-transform: uppercase;
+            &:nth-child(1) {
+                opacity: 0.6;
+            }
+        }
+        
+    }
+}
+.step-1-inner {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.step-number {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}

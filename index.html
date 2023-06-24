@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <link rel="stylesheet" href="/dist/style.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+</head>
+<body>
+ <!-- Sidebar start -->
+ <div class="step-1 d-flex w-100 vh-100 justify-content-center align-items-center">
+  <div class="step-1-inner d-flex">
+  <div class="sidebar d-flex flex-column">
+    <div class="step d-flex flex-row align-items-center">
+      <div class="step-number d-flex justify-content-center align-items-center"><span>1</span></div>
+      <div class="step-details d-flex flex-column">
+        <span>Step 1</span>
+        <span>Your info</span>
+      </div>
+    </div>
+    <div class="step d-flex flex-row align-items-center">
+      <div class="step-number d-flex justify-content-center align-items-center"><span>2</span></div>
+      <div class="step-details d-flex flex-column">
+        <span>Step 2</span>
+        <span>Select plan</span>
+      </div>
+    </div>
+    <div class="step d-flex flex-row align-items-center">
+      <div class="step-number d-flex justify-content-center align-items-center"><span>3</span></div>
+      <div class="step-details d-flex flex-column">
+        <span>Step 3</span>
+        <span>Add-ons</span>
+      </div>
+    </div>
+    <div class="step d-flex flex-row align-items-center">
+      <div class="step-number d-flex justify-content-center align-items-center"><span>4</span></div>
+      <div class="step-details d-flex flex-column">
+        <span>Step 4
+        </span>
+        <span>Summary</span>
+      </div>
+    </div>
+  </div>
+   <!-- Sidebar end -->
+  <!-- Step 1 start -->
+  <div class="personal-info">
+    <h1>Personal info</h1>
+    <p>Please provide your name, email address, and phone number.</p>
+    <form>
+      <div class="d-flex flex-column mb-3">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="e.g. Stephen King" onfocus="this.value=''">
+      </div>
+      <div class="d-flex flex-column mb-3">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" value="e.g. stephenking@lorem.com" onfocus="this.value=''">
+      </div>
+      <div class="d-flex flex-column mb-3">
+        <label for="phone">Phone Number</label>
+        <input type="phone" id="phone" name="phone" value="  e.g. +1 234 567 890" onfocus="this.value=''">
+      </div>
+      <input type="submit" value="Next Step" />
+    </form>
+  </div>
+</div>
+</div>
+  <!-- Step 1 end -->
+
+  <!-- Step 2 start -->
+<!-- 
+  Select your plan
+  You have the option of monthly or yearly billing.
+
+  Arcade
+  $9/mo
+
+  Advanced
+  $12/mo
+
+  Pro
+  $15/mo
+
+  Monthly
+  Yearly
+
+  Go Back
+  Next Step -->
+
+  <!-- Step 2 end -->
+
+  <!-- Step 3 start -->
+
+  <!-- Pick add-ons
+  Add-ons help enhance your gaming experience.
+
+  Online service
+  Access to multiplayer games
+  +$1/mo
+
+  Larger storage
+  Extra 1TB of cloud save
+  +$2/mo
+
+  Customizable Profile
+  Custom theme on your profile
+  +$2/mo
+
+  Go Back
+  Next Step -->
+
+  <!-- Step 3 end -->
+
+  <!-- Step 4 start -->
+
+  <!-- Finishing up
+  Double-check everything looks OK before confirming. -->
+
+  <!-- Dynamically add subscription and add-on selections here -->
+
+  <!-- Total (per month/year)
+
+  Go Back
+  Confirm -->
+
+  <!-- Step 4 end -->
+
+  <!-- Step 5 start -->
+
+  <!-- Thank you!
+
+  Thanks for confirming your subscription! We hope you have fun 
+  using our platform. If you ever need support, please feel free 
+  to email us at support@loremgaming.com. -->
+
+  <!-- Step 5 end -->
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="/js/script.js"></script>
+</body>
+</html>

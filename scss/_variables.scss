@@ -1,0 +1,25 @@
+//fonts
+@font-face {
+    font-family:'Ubuntu';
+    src: url(/assets/fonts/Ubuntu-Bold.ttf);
+    font-weight: 700;
+ }
+
+ @font-face {
+    font-family:'Ubuntu';
+    src: url(/assets/fonts/Ubuntu-Medium.ttf);
+    font-weight: 500;
+ }
+
+ @font-face {
+    font-family:'Ubuntu';
+    src: url(/assets/fonts/Ubuntu-Regular.ttf);
+    font-weight: 300;
+ }
+
+//colours 
+$grey: #f4f3f4;
+$grey-blue: #eef5ff;
+$purple: #8d87b9;
+$blue: #174c88;
+
