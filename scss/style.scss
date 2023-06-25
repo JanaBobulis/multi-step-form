@@ -27,9 +27,10 @@ body {
     gap: 20px;
 }
 
-.personal-info {
+.page {
     padding: 20px 70px;
 }
+
 
 input {
     border-radius: 6px;
@@ -54,10 +55,19 @@ input[type="submit"] {
     padding: 10px 15px;
     color: white;
     background: $blue;
+    margin-right: 70px;
+}
+
+.previous-step {
+    display: none;
+    &.previous-step-active {
+        display: block;
+    }
 }
 
 .step {
     gap: 18px;
+    display: none;
     .step-details {
         span {
             color: white;
@@ -66,7 +76,12 @@ input[type="submit"] {
                 opacity: 0.6;
             }
         }
-        
+    }
+    &.step-active {
+        .step-number {
+            background: $grey-blue;
+            color: black;
+        }
     }
 }
 .step-1-inner {
@@ -82,4 +97,15 @@ input[type="submit"] {
     width: 30px;
     height: 30px;
     border-radius: 50px;
+}
+
+.page {
+    display: none;
+    &.page-active {
+        display: block;
+    }
+}
+
+.next-step-inactive {
+    display: none;
 }
