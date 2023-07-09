@@ -50,7 +50,7 @@
   </div>
    <!-- Sidebar end -->
   <!-- Step 1 start -->
-  <div class="pages">
+  <div class="pages d-flex flex-column justify-content-between">
     <div class="pages-inner">
   <div class="personal-info page page-active">
     <h1>Personal info</h1>
@@ -73,18 +73,37 @@
   <div class="select-plan page">
     <h1>Select your plan</h1>
     <p>You have the option of monthly or yearly billing.</p>
-    <form>
-      <div class="d-flex flex-column mb-3">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" value="e.g. Stephen King" onfocus="this.value=''">
+    <form class="d-flex justify-content-between">
+      <div class="d-flex flex-column mb-3  w-100 h-100">
+        <label class=" d-flex flex-column" for="arcade">
+          <img src="/assets/images/icon-arcade.svg" />
+          <span class="d-flex flex-column">
+            Arcade <br/>
+            $9/mo
+          </span>
+          
+          </label>
+        <input type="radio" id="arcade" name="plan" value="" onfocus="this.value=''">
       </div>
-      <div class="d-flex flex-column mb-3">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" value="e.g. stephenking@lorem.com" onfocus="this.value=''">
+      <div class="d-flex flex-column mb-3 position-relative w-100 h-100">
+        <label class="" for="advanced">
+          <img src="/assets/images/icon-advanced.svg" />
+          <span class="d-flex flex-column">
+            Advanced <br/>
+            $9/mo
+          </span>
+        </label>
+        <input type="radio" id="advanced" name="plan" value="" onfocus="this.value=''">
       </div>
-      <div class="d-flex flex-column mb-3">
-        <label for="phone">Phone Number</label>
-        <input type="phone" id="phone" name="phone" value="  e.g. +1 234 567 890" onfocus="this.value=''">
+      <div class="d-flex flex-column mb-3  w-100 h-100">
+        <label class="" for="pro">
+          <img src="/assets/images/icon-pro.svg" />
+          <span class="d-flex flex-column">
+            Pro <br/>
+            $9/mo
+          </span>
+        </label>
+        <input type="radio" id="pro" name="plan" value="" onfocus="this.value=''">
       </div>
     </form>
   </div>
@@ -107,8 +126,11 @@
     </form>
   </div>
 </div>
-<input class="previous-step" type="submit" value="Go Back" />
+<div>
+  <input class="previous-step" type="submit" value="Go Back" />
 <input class="next-step" type="submit" value="Next Step" />
+</div>
+
 </div>
 
 

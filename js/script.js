@@ -1,8 +1,9 @@
 $( document ).ready(function() {
     let stepIndex = $('.sidebar .step-active').index(); 
     let pageIndex = $('.pages-inner .page-active').index(); 
-    let length = $('.pages-inner .page').length;
+    let pagesLength = $('.pages-inner .page').length;
 
+    //next button
     $(".next-step").on("click", function(){
         $('.sidebar').find('.step-active').removeClass('step-active');
         stepIndex++;
@@ -15,11 +16,12 @@ $( document ).ready(function() {
         if(pageIndex >= 1) {
             $('.previous-step').addClass('previous-step-active')
         } 
-        if (pageIndex === length) {
+        if (pageIndex === pagesLength) {
             $('.next-step').addClass('next-step-inactive')
         }
     });
 
+    //prev button
     $(".previous-step").on("click", function(){
         $('.sidebar').find('.step-active').removeClass('step-active');
         stepIndex--;
@@ -29,15 +31,11 @@ $( document ).ready(function() {
          pageIndex--;
          $('.pages-inner .page').eq(pageIndex).addClass("page-active");
 
-         console.log(length, pageIndex)
-
         if(pageIndex < 1) {
             $('.previous-step').removeClass('previous-step-active')
         } 
-
-        if (pageIndex < length) {
+        if (pageIndex < pagesLength) {
             $('.next-step').removeClass('next-step-inactive')
         }
-
     });
 });

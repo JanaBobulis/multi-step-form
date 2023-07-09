@@ -109,3 +109,22 @@ input[type="submit"] {
 .next-step-inactive {
     display: none;
 }
+
+input[type=radio] {
+    opacity: 0;
+}
+
+.select-plan label {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.select-plan form {
+    gap: 10px;
+}
+
+form label img {
+    width: 27px;
+    height: 27px;
+}
