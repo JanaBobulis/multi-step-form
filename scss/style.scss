@@ -27,6 +27,11 @@ body {
     gap: 20px;
 }
 
+.pages {
+    width: 590px;
+    max-width: 590px;
+}
+
 .page {
     padding: 20px 70px;
 }
@@ -50,18 +55,37 @@ input {
     
 }
 
-input[type="submit"] {
+input[type="submit"].next-step {
     float: right;
     padding: 10px 15px;
     color: white;
-    background: $blue;
-    margin-right: 70px;
+    background: $marineBlue;
+    transition: 150ms ease-in-out;
+    &:hover {
+        background: $blue;
+        transition: 150ms ease-in-out;
+    }
+}
+
+input[type="submit"].previous-step {
+   background: transparent;
+   border: none;
+   transition: 150ms ease-in-out;
+   &:hover {
+    color: $blue;
+    transition: 150ms ease-in-out;
+   }
+}
+
+.prev-next-buttons {
+    padding: 20px 70px;
 }
 
 .previous-step {
-    display: none;
+    opacity: 0;
     &.previous-step-active {
-        display: block;
+        opacity: 1;
+
     }
 }
 
@@ -81,6 +105,7 @@ input[type="submit"] {
         .step-number {
             background: $grey-blue;
             color: black;
+            transition: 150ms ease-in-out;
         }
     }
 }
@@ -97,6 +122,7 @@ input[type="submit"] {
     width: 30px;
     height: 30px;
     border-radius: 50px;
+    transition: 150ms ease-in-out;
 }
 
 .page {
@@ -114,8 +140,35 @@ input[type=radio] {
     opacity: 0;
 }
 
+  input[type=radio]:checked ~ label
+{
+ background-color:green;
+}
+
+label.switchLabel {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+  }
+  .switchLabel .left   { order: 1; }
+  .switchLabel .switch { order: 2; }
+  .switchLabel .right  { order: 3; }
+  
+  /* sibling selector ~ */
+  .switchLabel .switch:not(:checked) ~ span.left { color: lightblue }
+  .switchLabel .switch:checked ~ span.right { color: lightblue }
+  
+  
+  
+  /* style the switch */
+  
+
+.select-plan input[type="radio"]:checked+label {
+    background-color: #bbb;
+  }
+
 .select-plan label {
-    border: 1px solid black;
+    border: 1px solid $light-grey;
     border-radius: 5px;
     padding: 10px;
 }

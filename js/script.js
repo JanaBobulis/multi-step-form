@@ -38,4 +38,8 @@ $( document ).ready(function() {
             $('.next-step').removeClass('next-step-inactive')
         }
     });
+
+    //radio buttons checked
+
+
 });
