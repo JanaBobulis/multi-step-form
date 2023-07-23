@@ -39,7 +39,38 @@ $( document ).ready(function() {
         }
     });
 
+    //checkbox buttons checked
+    $(".add-on-row input[type='checkbox']").change(function(){
+        if($(this).is(":checked")){
+            $(this).parent().addClass("checkbox-checked"); 
+        }else{
+            $(this).parent().removeClass("checkbox-checked");  
+        }
+    });
+
+    $(".switch-checkbox input[type='checkbox']").change(function(){
+        if($(this).is(":checked")){
+            $(this).parent().parent().addClass("checkbox-checked"); 
+        }else{
+            $(this).parent().parent().removeClass("checkbox-checked");  
+        }
+    });
+
+
     //radio buttons checked
+    const radioBtns = document.querySelectorAll("input[type='radio']");
 
+        const radioButtons = (els) => {
+        els.forEach((el) => {
+            el.addEventListener('click', (e) => {
+            el.parentNode.classList.toggle('radio-checked');
+            // Here you also have to remove 'active' from the other elements
+            els.forEach(lm => lm !== el && lm.parentNode.classList.remove('radio-checked'));
+            });
+        });
+        };
 
+    radioButtons(radioBtns);
+
+    
 });

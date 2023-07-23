@@ -49,9 +49,10 @@
     </div>
   </div>
    <!-- Sidebar end -->
-  <!-- Step 1 start -->
+ 
   <div class="pages d-flex flex-column justify-content-between">
     <div class="pages-inner">
+       <!-- Step 1 start -->
   <div class="personal-info page page-active">
     <h1>Personal info</h1>
     <p>Please provide your name, email address, and phone number.</p>
@@ -70,11 +71,14 @@
       </div>
     </form>
   </div>
+   <!-- Step 1 end -->
+   <!-- Step 2 start -->
   <div class="select-plan page">
     <h1>Select your plan</h1>
     <p>You have the option of monthly or yearly billing.</p>
-    <form class="d-flex justify-content-between">
-      <div class="plan-container d-flex flex-column mb-3  w-100 h-100">
+    <form class="d-flex flex-column align-items-center w-100">
+      <div class="d-flex justify-content-between plan-container-outer w-100">
+      <div class="plan-container d-flex flex-column mb-3 w-100 h-100">
         <label class=" d-flex flex-column" for="arcade">
           <img src="/assets/images/icon-arcade.svg" />
           <span class="d-flex flex-column">
@@ -86,7 +90,7 @@
         <input type="radio" id="arcade" name="plan" value="" onfocus="this.value=''"/>
       </div>
       <div class="plan-container d-flex flex-column mb-3 position-relative w-100 h-100">
-        <label class="" for="advanced">
+        <label class="d-flex flex-column" for="advanced">
           <img src="/assets/images/icon-advanced.svg" />
           <span class="d-flex flex-column">
             Advanced <br/>
@@ -96,7 +100,7 @@
         <input type="radio" id="advanced" name="plan" value="" onfocus="this.value=''"/>
       </div>
       <div class="plan-container d-flex flex-column mb-3  w-100 h-100">
-        <label class="" for="pro">
+        <label class="d-flex flex-column" for="pro">
           <img src="/assets/images/icon-pro.svg" />
           <span class="d-flex flex-column">
             Pro <br/>
@@ -105,26 +109,72 @@
         </label>
         <input type="radio" id="pro" name="plan" value="" onfocus="this.value=''"/>
       </div>
+    </div>
+    <div class="switch-checkbox d-flex justify-content-center align-items-center w-100">
+      <span class="monthly">Monthly</span>
+      <label class="switch">
+        <input type="checkbox" id="monthlyYearly" name="monthlyYearly" value="" onfocus="this.value=''">
+        <span class="slider round"></span>
+      </label>
+      <span class="yearly">Yearly</span>
+    </div>
+      
     </form>
   </div>
+   <!-- Step 2 end -->
+    <!-- Step 3 start -->
   <div class="test page">
-    <h1>TEST</h1>
-    <p>TEST</p>
+    <h1>Pick add-ons</h1>
+    <p>Add-ons help enhance your gaming experience.</p>
     <form>
-      <div class="d-flex flex-column mb-3">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" value="e.g. Stephen King" onfocus="this.value=''">
+      <div class="add-on-row d-flex flex-row mb-3">
+        <input type="checkbox" id="onlineService" name="onlineService" value="" onfocus="this.value=''">
+        <label for="onlineService" class="d-flex flex-row justify-content-between align-items-center w-100">
+          <div class="row-package">
+            <div class="row-title">
+              Online service
+            </div>
+            <div class="row-subtitle">Access to multiplayer games</div>
+          </div>
+          <div class="row-price">
+            +$1/mo
+          </div>
+         
+          </label>
       </div>
-      <div class="d-flex flex-column mb-3">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" value="e.g. stephenking@lorem.com" onfocus="this.value=''">
+      <div class="add-on-row d-flex flex-row mb-3">
+        <input type="checkbox" id="largerStorage" name="largerStorage" value="" onfocus="this.value=''">
+        <label for="largerStorage" class="d-flex flex-row justify-content-between align-items-center w-100">
+          <div class="row-package">
+            <div class="row-title">
+              Larger storage
+            </div>
+            <div class="row-subtitle">Extra 1TB of cloud save</div>
+          </div>
+          <div class="row-price">
+            +$2/mo
+          </div>
+         
+          </label>
       </div>
-      <div class="d-flex flex-column mb-3">
-        <label for="phone">Phone Number</label>
-        <input type="phone" id="phone" name="phone" value="  e.g. +1 234 567 890" onfocus="this.value=''">
+      <div class="add-on-row d-flex flex-row mb-3">
+        <input type="checkbox" id="customizableProfile" name="customizableProfile" value="" onfocus="this.value=''">
+        <label for="customizableProfile" class="d-flex flex-row justify-content-between align-items-center w-100">
+          <div class="row-package" >
+            <div class="row-title">
+              Customizable profile
+            </div>
+            <div class="row-subtitle">Custom theme on your profile</div>
+          </div>
+          <div class="row-price">
+            +$2/mo
+          </div>
+         
+          </label>
       </div>
     </form>
   </div>
+   <!-- Step 3 end -->
 </div>
 <div class="prev-next-buttons d-flex justify-content-between">
   <input class="previous-step ms-0" type="submit" value="Go Back" />

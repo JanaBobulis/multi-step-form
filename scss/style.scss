@@ -167,17 +167,152 @@ label.switchLabel {
     background-color: #bbb;
   }
 
+  .select-plan {
+    .plan-container {
+        &.radio-checked {
+            background-color: $magnolia;
+        }
+    }
+   
+    input {
+        position: absolute;
+        visibility: hidden;
+    }
+  }
+
+
 .select-plan label {
     border: 1px solid $light-grey;
     border-radius: 5px;
     padding: 10px;
+    gap: 40px;
 }
 
 .select-plan form {
-    gap: 10px;
-}
+    gap: 20px;
+    .plan-container-outer {
+        gap: 15px;
+    }
+} 
 
 form label img {
-    width: 27px;
-    height: 27px;
+    width: 35px;
+    height: 35px;
 }
+
+
+.add-on-row {
+    border: 1px solid $pastelBlue;
+    border-radius: 5px;
+    input {
+        position: absolute;
+        visibility: hidden;
+        &:checked + label:before{
+            background: blue;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'%3E%3Cstyle%3Esvg%7Bfill:%23ffffff%7D%3C/style%3E%3Cpath d='M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 7px;
+    
+        }
+    }
+    label {
+        cursor: pointer;
+        padding: 17px;
+        border: 1px solid $pastelBlue;
+        &::before {
+            position: relative;
+            display: block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $pastelBlue;
+            border-radius: 4px;
+            content: "";
+        }
+    }
+    &.checkbox-checked {
+        background-color: $magnolia;
+    }
+    .row-package {
+        margin-left: 25px;
+    }
+    .row-title {
+    color: $marineBlue;
+    }
+    .row-subtitle {
+color: $coolGrey;
+    }
+    .row-price {
+        color: $pastelBlue;
+        margin-left: auto;
+    }
+}
+
+//switch to monthly or yearly subscription
+.switch-checkbox {
+   gap: 10px;
+   background: $magnolia;
+    padding: 10px;
+    &.checkbox-checked span.yearly {
+        color: $blue;
+    }
+    &.checkbox-checked span.monthly {
+        color: $coolGrey;
+    }
+    span {
+        color: $blue;
+        &.yearly {
+            color: $coolGrey;
+        }
+    }
+   label.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+    border: none;
+    input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked + .slider:before {
+        -webkit-transform: translateX(23px);
+        -ms-transform: translateX(23px);
+        transform: translateX(23px);
+        }
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $marineBlue;
+        -webkit-transition: .4s;
+        transition: .4s;
+        &::before {
+            position: absolute;
+            content: "";
+            height: 19px;
+            width: 19px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        &.round {
+            border-radius: 34px;
+            &::before {
+                border-radius: 50%;
+  } 
+            }
+          }
+      }
+}
+
+  
+
+
