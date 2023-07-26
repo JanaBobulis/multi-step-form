@@ -169,14 +169,24 @@ label.switchLabel {
 
   .select-plan {
     .plan-container {
+        transition: 150ms all ease-in-out;
         &.radio-checked {
             background-color: $magnolia;
+            transition: 150ms all ease-in-out;
         }
     }
    
     input {
         position: absolute;
         visibility: hidden;
+    }
+
+    .monthly-yearly {
+        color: $coolGrey;
+    }
+    .free-month {
+        font-size: 14px;
+        transition: 150ms all ease-in-out;
     }
   }
 

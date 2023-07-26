@@ -51,8 +51,43 @@ $( document ).ready(function() {
     $(".switch-checkbox input[type='checkbox']").change(function(){
         if($(this).is(":checked")){
             $(this).parent().parent().addClass("checkbox-checked"); 
+
+            //if checkbox has been checked add yearly options
+            $('.plan-container-arcade .monthly-yearly').html('$90/yr')
+            $('.plan-container-advanced .monthly-yearly').html('$120/yr')
+            $('.plan-container-pro .monthly-yearly').html('$150/yr')
+
+            $('[for=onlineService] .row-price').html('+$10/yr')
+            $('[for=largerStorage] .row-price').html('+$20/yr')
+            $('[for=customizableProfile] .row-price').html('+$20/yr')
+
+            //create new elements for each box
+            $('<span/>',{
+                text: '2 month free',
+                class: 'free-month'
+            }).appendTo('.plan-container-arcade .package-inclusions');
+
+            $('<span/>',{
+                text: '2 month free',
+                class: 'free-month'
+            }).appendTo('.plan-container-advanced .package-inclusions');
+
+            $('<span/>',{
+                text: '2 month free',
+                class: 'free-month'
+            }).appendTo('.plan-container-pro .package-inclusions');
         }else{
-            $(this).parent().parent().removeClass("checkbox-checked");  
+            $(this).parent().parent().removeClass("checkbox-checked"); 
+            $('.plan-container-arcade .monthly-yearly').html('$9/mo')
+            $('.plan-container-advanced .monthly-yearly').html('$9/mo')
+            $('.plan-container-pro .monthly-yearly').html('$9/mo') 
+
+            $('[for=onlineService] .row-price').html('+$1/mo')
+            $('[for=largerStorage] .row-price').html('+$2/mo')
+            $('[for=customizableProfile] .row-price').html('+$2/mo')
+
+            //remove last element with 'free month' text if monthly plan is selected
+            $('.free-month').remove()
         }
     });
 
@@ -72,5 +107,5 @@ $( document ).ready(function() {
 
     radioButtons(radioBtns);
 
-    
+
 });
