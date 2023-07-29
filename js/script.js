@@ -4,7 +4,7 @@ $( document ).ready(function() {
     let pagesLength = $('.pages-inner .page').length;
 
     //next button
-    $(".next-step").on("click", function(){
+    $(".next-step").on("click", function(e){
         $('.sidebar').find('.step-active').removeClass('step-active');
         stepIndex++;
          $('.sidebar .step').eq(stepIndex).addClass("step-active");
@@ -19,7 +19,19 @@ $( document ).ready(function() {
         if (pageIndex === pagesLength) {
             $('.next-step').addClass('next-step-inactive')
         }
-    });
+
+        //if page index is matching finishin up page, apply inner html of selected element on button click
+        if(pageIndex === 2) {
+            let selectedPlanName = $('.radio-checked').find('.plan-name').html();
+            $('.selected-plan .name').append(selectedPlanName)
+            let selectedPlanPrice = $('.radio-checked').find('.monthly-yearly').html();
+            $('.selected-plan .price').append(selectedPlanPrice)
+        }
+
+        $('body').removeClass();
+        $('body').addClass(`page-${pageIndex}`)
+
+        });
 
     //prev button
     $(".previous-step").on("click", function(){
@@ -37,6 +49,17 @@ $( document ).ready(function() {
         if (pageIndex < pagesLength) {
             $('.next-step').removeClass('next-step-inactive')
         }
+
+        //remove inner html of the selected items on 'go back' button click if another item has been selected
+        if(pageIndex != 2) {
+            let selectedPlanName = $('.radio-checked').find('.plan-name').html();
+            $('.selected-plan .name').empty(selectedPlanName)
+            let selectedPlanPrice = $('.radio-checked').find('.monthly-yearly').html();
+            $('.selected-plan .price').empty(selectedPlanPrice)
+        }
+
+        $('body').removeClass();
+        $('body').addClass(`page-${pageIndex}`)
     });
 
     //checkbox buttons checked
@@ -99,13 +122,22 @@ $( document ).ready(function() {
         els.forEach((el) => {
             el.addEventListener('click', (e) => {
             el.parentNode.classList.toggle('radio-checked');
+            
+            let parentNode = el.parentNode
+            let children = parentNode.children
+            console.log(children[0])
+            
             // Here you also have to remove 'active' from the other elements
             els.forEach(lm => lm !== el && lm.parentNode.classList.remove('radio-checked'));
             });
+            
         });
+
         };
 
     radioButtons(radioBtns);
+
+    // let selectedPlan = $('.plan-container.radio-checked label .package-inclusions span')
 
 
 });
