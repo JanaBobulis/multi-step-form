@@ -83,8 +83,10 @@ input[type="submit"].previous-step {
 
 .previous-step {
     opacity: 0;
+    visibility: hidden;
     &.previous-step-active {
         opacity: 1;
+        visibility: visible;
 
     }
 }
