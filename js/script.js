@@ -10,17 +10,14 @@ $( document ).ready(function() {
             
             let parentNode = el.parentNode
             let children = parentNode.children
-            console.log(children[0])
             
             // Here you also have to remove 'active' from the other elements
             els.forEach(lm => lm !== el && lm.parentNode.classList.remove('radio-checked'));
             });
-            
         });
-
         };
 
-    radioButtons(radioBtns);
+        radioButtons(radioBtns);
 
         //checkbox buttons checked add unique class name
         const checkBtns = document.querySelectorAll("input[type='checkbox']");
@@ -37,12 +34,13 @@ $( document ).ready(function() {
         checkBoxes(checkBtns);
 
     let stepIndex = $('.sidebar .step-active').index(); 
+    let stepLength = $('.sidebar .step').length; 
+    console.log(stepLength)
     let pageIndex = $('.pages-inner .page-active').index(); 
     let pagesLength = $('.pages-inner .page').length;
 
     //next button
     $(".next-step").on("click", function(e){
-        console.log(pageIndex)
         $('.sidebar').find('.step-active').removeClass('step-active');
         stepIndex++;
          $('.sidebar .step').eq(stepIndex).addClass("step-active");
@@ -58,6 +56,8 @@ $( document ).ready(function() {
             $('.next-step').addClass('next-step-inactive')
         }
 
+        console.log(++pagesLength)
+
         //if page index is matching finishing up page, apply inner html of selected element on button click
         if(pageIndex === 2) {
             let selectedPlanName = $('.radio-checked').find('.plan-name').html();
@@ -66,7 +66,8 @@ $( document ).ready(function() {
             $('.selected-plan .price').append(selectedPlanPrice)
         } 
         if(pageIndex === 3) {
-            $('.checkbox-checked').each(function(i, obj) {
+    
+            $('.add-on-row.checkbox-checked').each(function(i, obj) {
                 var $this = $(this);
                 var selectValuesName = $this.find(".row-title").html();
                 var selectValuesPrice = $this.find(".row-price").html();
@@ -74,6 +75,42 @@ $( document ).ready(function() {
                 $('.selected-plan-details .name ul').append('<li>' + selectValuesName + '</li>')
                 $('.selected-plan-details .price ul').append('<li>' + selectValuesPrice + '</li>')
             });
+
+            let selectedPlanDetails = Array.from(document.querySelectorAll('.selected-plan-details .price ul li'));
+
+            var newVariable = [];
+            selectedPlanDetails.forEach(inner => {
+                let sumofprice = inner.innerHTML.replace(/\D/g, '')
+                let newVar = newVariable.push(sumofprice)
+            })
+            
+            //loop through selections and combine in to one array
+            function fill () {
+                Array.prototype.slice.apply(arguments) // Make an array out of arguments.
+                    .forEach(function(arg){
+
+                    });
+            };
+            
+            fill(newVariable);
+
+            let str1 = document.querySelector('.selected-plan .price').innerHTML.replace(/\D/g, '');
+            let str1Array = str1.split(/,\s*/);
+
+            let concatArray = str1Array.concat(newVariable)
+
+            //convert an array of numbers to integers
+            //stackoverflow.com/questions/4437916/how-to-convert-all-elements-in-an-array-to-integer-in-javascript
+            let convertToIntegers = concatArray.map(Number)
+
+            // create a variable for the sum and initialize it
+            let sum = 0;
+            // calculate sum using forEach() method
+            convertToIntegers.forEach( num => {
+                sum += num;
+            })
+
+            $('.total-price').html('$' + sum + '/mo' )
         }
 
         $('body').removeClass();
@@ -172,11 +209,4 @@ $( document ).ready(function() {
             $('.free-month').remove()
         }
     });
-
-
-
-
-    // let selectedPlan = $('.plan-container.radio-checked label .package-inclusions span')
-
-
 });
