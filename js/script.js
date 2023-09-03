@@ -35,7 +35,7 @@ $( document ).ready(function() {
 
     let stepIndex = $('.sidebar .step-active').index(); 
     let stepLength = $('.sidebar .step').length; 
-    console.log(stepLength)
+   
     let pageIndex = $('.pages-inner .page-active').index(); 
     let pagesLength = $('.pages-inner .page').length;
 
@@ -56,14 +56,12 @@ $( document ).ready(function() {
             $('.next-step').addClass('next-step-inactive')
         }
 
-        console.log(++pagesLength)
-
         //if page index is matching finishing up page, apply inner html of selected element on button click
         if(pageIndex === 2) {
             let selectedPlanName = $('.radio-checked').find('.plan-name').html();
-            $('.selected-plan .name').append(selectedPlanName)
+            $('.selected-plan .plan-name').append('<span>' + selectedPlanName + '</span>')
             let selectedPlanPrice = $('.radio-checked').find('.monthly-yearly').html();
-            $('.selected-plan .price').append(selectedPlanPrice)
+            $('.selected-plan .plan-price').append('<span>' + selectedPlanPrice +'</span>')
         } 
         if(pageIndex === 3) {
     
@@ -94,7 +92,7 @@ $( document ).ready(function() {
             
             fill(newVariable);
 
-            let str1 = document.querySelector('.selected-plan .price').innerHTML.replace(/\D/g, '');
+            let str1 = document.querySelector('.selected-plan .plan-price').innerHTML.replace(/\D/g, '');
             let str1Array = str1.split(/,\s*/);
 
             let concatArray = str1Array.concat(newVariable)
@@ -113,10 +111,15 @@ $( document ).ready(function() {
             $('.total-price').html('$' + sum + '/mo' )
         }
 
+        //add class active to the last element with class step for 'thank you' page
+        if (pageIndex === 4) {
+            $('.sidebar .step').eq(stepIndex - 1).addClass("step-active");
+        }
+
         $('body').removeClass();
         $('body').addClass(`page-${pageIndex}`)
 
-        });
+    });
 
     //prev button
     $(".previous-step").on("click", function(){
@@ -138,9 +141,9 @@ $( document ).ready(function() {
         //remove inner html of the selected items on 'go back' button click if another item has been selected
         if(pageIndex != 2) {
             let selectedPlanName = $('.radio-checked').find('.plan-name').html();
-            $('.selected-plan .name').empty(selectedPlanName)
+            $('.selected-plan .plan-name').empty('<span>' + selectedPlanName + '</span>')
             let selectedPlanPrice = $('.radio-checked').find('.monthly-yearly').html();
-            $('.selected-plan .price').empty(selectedPlanPrice)
+            $('.selected-plan .plan-price').empty('<span>' + selectedPlanPrice +'</span>')
         }
 
         if(pageIndex !=3)  {
@@ -209,4 +212,27 @@ $( document ).ready(function() {
             $('.free-month').remove()
         }
     });
+
+    $('.change').on("click", function() {
+        $('.sidebar').find('.step-active').removeClass('step-active');
+        $('.sidebar .step').eq(stepIndex = 1).addClass("step-active");
+
+        $('.pages-inner').find('.page-active').removeClass('page-active');
+        $('.pages-inner .page').eq(pageIndex = 1).addClass("page-active");
+
+        $('.checkbox-checked').each(function(i, obj) {
+            console.log(i, obj, $this)
+            var $this = $(this);
+            var selectValuesName = $this.find(".row-title").html();
+            var selectValuesPrice = $this.find(".row-price").html();
+
+            $('.selected-plan-details .name ul').empty('<li>' + selectValuesName + '</li>')
+            $('.selected-plan-details .price ul').empty('<li>' + selectValuesPrice + '</li>')
+        });
+        let selectedPlanName = $('.radio-checked').find('.plan-name').html();
+        $('.selected-plan .plan-name').empty('<span>' + selectedPlanName + '</span>')
+        let selectedPlanPrice = $('.radio-checked').find('.monthly-yearly').html();
+        $('.selected-plan .plan-price').empty('<span>' + selectedPlanPrice + '</span>')
+
+    })
 });
